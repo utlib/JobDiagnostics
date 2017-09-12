@@ -1,0 +1,216 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Job Diagnostics\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-09-12 15:00-0400\n"
+"PO-Revision-Date: 2017-09-12 15:01-0500\n"
+"Last-Translator: Dickson Law <dickson.law@utoronto.ca>\n"
+"Language-Team: University of Toronto Libraries\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-Basepath: /home/developer/JobDiagnostics\n"
+"X-Poedit-SearchPath-0: /home/developer/JobDiagnostics/*/*.php\n"
+
+#: views/admin/tests/browse.php:4
+#, php-format
+msgid "Browsing Test History (%d total)"
+msgstr "Browsing Test History (%d total)"
+
+#: views/admin/tests/browse.php:12 views/admin/processes/browse.php:12
+msgid "Refresh"
+msgstr "Refresh"
+
+#: views/admin/tests/browse.php:15
+msgid "No test records."
+msgstr "No test records."
+
+#: views/admin/tests/browse.php:23 views/admin/processes/browse.php:20
+msgid "ID"
+msgstr "ID"
+
+#: views/admin/tests/browse.php:24
+msgid "Dispatch Type"
+msgstr "Dispatch Type"
+
+#: views/admin/tests/browse.php:25 views/admin/processes/browse.php:24
+msgid "Started"
+msgstr "Started"
+
+#: views/admin/tests/browse.php:26
+msgid "Finished"
+msgstr "Finished"
+
+#: views/admin/tests/browse.php:27
+msgid "Error"
+msgstr "Error"
+
+#: views/admin/tests/browse.php:40
+msgid "Short-Running Job"
+msgstr "Short-Running Job"
+
+#: views/admin/tests/browse.php:43
+msgid "Long-Running Job"
+msgstr "Long-Running Job"
+
+#: views/admin/tests/browse.php:52
+msgid "[OK]"
+msgstr "[OK]"
+
+#: views/admin/tests/index.php:4 JobDiagnosticsPlugin.php:102
+msgid "Job Diagnostics"
+msgstr "Job Diagnostics"
+
+#: views/admin/tests/index.php:13
+msgid "Short-Running Jobs"
+msgstr "Short-Running Jobs"
+
+#: views/admin/tests/index.php:15
+msgid ""
+"Short-running jobs are used in more routine tasks such as batch edits. Run "
+"this test if these appear to be not working."
+msgstr ""
+"Short-running jobs are used in more routine tasks such as batch edits. Run "
+"this test if these appear to be not working."
+
+#: views/admin/tests/index.php:19 views/admin/tests/index.php:47
+#, php-format
+msgid "Latest result: %s"
+msgstr "Latest result: %s"
+
+#: views/admin/tests/index.php:21 views/admin/tests/index.php:49
+#, php-format
+msgid "Latest result (%s): %s"
+msgstr "Latest result (%s): %s"
+
+#: views/admin/tests/index.php:28 views/admin/tests/index.php:56
+msgid "Test"
+msgstr "Test"
+
+#: views/admin/tests/index.php:33 views/admin/tests/index.php:61
+msgid "History"
+msgstr "History"
+
+#: views/admin/tests/index.php:37
+msgid "Clear all short-running test records?"
+msgstr "Clear all short-running test records?"
+
+#: views/admin/tests/index.php:37 views/admin/tests/index.php:65
+msgid "Clear"
+msgstr "Clear"
+
+#: views/admin/tests/index.php:41
+msgid "Long-Running Jobs"
+msgstr "Long-Running Jobs"
+
+#: views/admin/tests/index.php:43
+msgid ""
+"Long-running jobs are used in plugins with longer import tasks, such as the "
+"CSV importer. Run this test if jobs started by plugins appear to be not "
+"working."
+msgstr ""
+"Long-running jobs are used in plugins with longer import tasks, such as the "
+"CSV importer. Run this test if jobs started by plugins appear to be not "
+"working."
+
+#: views/admin/tests/index.php:65
+msgid "Clear all long-running test records?"
+msgstr "Clear all long-running test records?"
+
+#: views/admin/processes/browse.php:4
+#, php-format
+msgid "Browsing Processes (%d total)"
+msgstr "Browsing Processes (%d total)"
+
+#: views/admin/processes/browse.php:21
+msgid "PID"
+msgstr "PID"
+
+#: views/admin/processes/browse.php:22
+msgid "Status"
+msgstr "Status"
+
+#: views/admin/processes/browse.php:23
+msgid "User"
+msgstr "User"
+
+#: views/admin/processes/browse.php:25
+msgid "Stopped"
+msgstr "Stopped"
+
+#: views/admin/processes/show.php:4
+#, php-format
+msgid "Showing Process %d"
+msgstr "Showing Process %d"
+
+#: views/admin/shared/nav.php:6
+msgid "Diagnostics"
+msgstr "Diagnostics"
+
+#: views/admin/shared/nav.php:10
+msgid "Processes"
+msgstr "Processes"
+
+#: controllers/TestsController.php:37 controllers/TestsController.php:50
+#: controllers/TestsController.php:79 controllers/TestsController.php:167
+msgid "Bad form submission."
+msgstr "Bad form submission."
+
+#: controllers/TestsController.php:55 controllers/TestsController.php:173
+#, php-format
+msgid "An error occurred: %s"
+msgstr "An error occurred: %s"
+
+#: controllers/TestsController.php:114
+msgid "No tests run yet."
+msgstr "No tests run yet."
+
+#: controllers/TestsController.php:119 controllers/TestsController.php:129
+#, php-format
+msgid "Error during dispatch: %s"
+msgstr "Error during dispatch: %s"
+
+#: controllers/TestsController.php:122
+msgid "Test in progress..."
+msgstr "Test in progress..."
+
+#: controllers/TestsController.php:124
+#, php-format
+msgid "No response after %d seconds. Jammed queue suspected."
+msgstr "No response after %d seconds. Jammed queue suspected."
+
+#: controllers/TestsController.php:131
+#, php-format
+msgid "Response in %d seconds. Queue OK."
+msgstr "Response in %d seconds. Queue OK."
+
+#: controllers/TestsController.php:133
+#, php-format
+msgid "Response in %d seconds. Queue busy but still OK."
+msgstr "Response in %d seconds. Queue busy but still OK."
+
+#: controllers/TestsController.php:135
+#, php-format
+msgid "Response in %d seconds. Queue nearing capacity, or re-test required."
+msgstr "Response in %d seconds. Queue nearing capacity, or re-test required."
+
+#: controllers/TestsController.php:171
+#, php-format
+msgid "%s test records successfully cleared!"
+msgstr "%s test records successfully cleared!"
+
+#~ msgid "Short Running Job"
+#~ msgstr "Short-Running Job"
+
+#~ msgid "Long Running Job"
+#~ msgstr "Long-Running Job"

@@ -1,0 +1,200 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-09-12 15:35-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: views/admin/tests/browse.php:4
+#, php-format
+msgid "Browsing Test History (%d total)"
+msgstr ""
+
+#: views/admin/tests/browse.php:12 views/admin/processes/browse.php:12
+msgid "Refresh"
+msgstr ""
+
+#: views/admin/tests/browse.php:15
+msgid "No test records."
+msgstr ""
+
+#: views/admin/tests/browse.php:23 views/admin/processes/browse.php:20
+msgid "ID"
+msgstr ""
+
+#: views/admin/tests/browse.php:24
+msgid "Dispatch Type"
+msgstr ""
+
+#: views/admin/tests/browse.php:25 views/admin/processes/browse.php:24
+msgid "Started"
+msgstr ""
+
+#: views/admin/tests/browse.php:26
+msgid "Finished"
+msgstr ""
+
+#: views/admin/tests/browse.php:27
+msgid "Error"
+msgstr ""
+
+#: views/admin/tests/browse.php:40 controllers/TestsController.php:171
+msgid "Short-Running Job"
+msgstr ""
+
+#: views/admin/tests/browse.php:43 controllers/TestsController.php:174
+msgid "Long-Running Job"
+msgstr ""
+
+#: views/admin/tests/browse.php:52
+msgid "[OK]"
+msgstr ""
+
+#: views/admin/tests/index.php:4 JobDiagnosticsPlugin.php:102
+msgid "Job Diagnostics"
+msgstr ""
+
+#: views/admin/tests/index.php:13
+msgid "Short-Running Jobs"
+msgstr ""
+
+#: views/admin/tests/index.php:15
+msgid ""
+"Short-running jobs are used in more routine tasks such as batch edits. Run "
+"this test if these appear to be not working."
+msgstr ""
+
+#: views/admin/tests/index.php:19 views/admin/tests/index.php:47
+#, php-format
+msgid "Latest result: %s"
+msgstr ""
+
+#: views/admin/tests/index.php:21 views/admin/tests/index.php:49
+#, php-format
+msgid "Latest result (%s): %s"
+msgstr ""
+
+#: views/admin/tests/index.php:28 views/admin/tests/index.php:56
+msgid "Test"
+msgstr ""
+
+#: views/admin/tests/index.php:33 views/admin/tests/index.php:61
+msgid "History"
+msgstr ""
+
+#: views/admin/tests/index.php:37
+msgid "Clear all short-running test records?"
+msgstr ""
+
+#: views/admin/tests/index.php:37 views/admin/tests/index.php:65
+msgid "Clear"
+msgstr ""
+
+#: views/admin/tests/index.php:41
+msgid "Long-Running Jobs"
+msgstr ""
+
+#: views/admin/tests/index.php:43
+msgid ""
+"Long-running jobs are used in plugins with longer import tasks, such as the "
+"CSV importer. Run this test if jobs started by plugins appear to be not "
+"working."
+msgstr ""
+
+#: views/admin/tests/index.php:65
+msgid "Clear all long-running test records?"
+msgstr ""
+
+#: views/admin/processes/browse.php:4
+#, php-format
+msgid "Browsing Processes (%d total)"
+msgstr ""
+
+#: views/admin/processes/browse.php:21
+msgid "PID"
+msgstr ""
+
+#: views/admin/processes/browse.php:22
+msgid "Status"
+msgstr ""
+
+#: views/admin/processes/browse.php:23
+msgid "User"
+msgstr ""
+
+#: views/admin/processes/browse.php:25
+msgid "Stopped"
+msgstr ""
+
+#: views/admin/processes/show.php:4
+#, php-format
+msgid "Showing Process %d"
+msgstr ""
+
+#: views/admin/shared/nav.php:6
+msgid "Diagnostics"
+msgstr ""
+
+#: views/admin/shared/nav.php:10
+msgid "Processes"
+msgstr ""
+
+#: controllers/TestsController.php:34 controllers/TestsController.php:47
+#: controllers/TestsController.php:76 controllers/TestsController.php:165
+msgid "Bad form submission."
+msgstr ""
+
+#: controllers/TestsController.php:52 controllers/TestsController.php:179
+#, php-format
+msgid "An error occurred: %s"
+msgstr ""
+
+#: controllers/TestsController.php:111
+msgid "No tests run yet."
+msgstr ""
+
+#: controllers/TestsController.php:116 controllers/TestsController.php:126
+#, php-format
+msgid "Error during dispatch: %s"
+msgstr ""
+
+#: controllers/TestsController.php:119
+msgid "Test in progress..."
+msgstr ""
+
+#: controllers/TestsController.php:121
+#, php-format
+msgid "No response after %d seconds. Jammed queue suspected."
+msgstr ""
+
+#: controllers/TestsController.php:128
+#, php-format
+msgid "Response in %d seconds. Queue OK."
+msgstr ""
+
+#: controllers/TestsController.php:130
+#, php-format
+msgid "Response in %d seconds. Queue busy but still OK."
+msgstr ""
+
+#: controllers/TestsController.php:132
+#, php-format
+msgid "Response in %d seconds. Queue nearing capacity, or re-test required."
+msgstr ""
+
+#: controllers/TestsController.php:177
+#, php-format
+msgid "%s test records successfully cleared!"
+msgstr ""

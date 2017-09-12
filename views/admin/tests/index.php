@@ -34,7 +34,7 @@ echo flash();
 
     <form action="tests/clear" method="POST" style="display:inline;">
         <input type="hidden" name="dispatch_type" value="short_running">
-        <button class="red button" onclick="return confirm('Clear all short-running test records?');"><?php echo __("Clear"); ?></button>
+        <button class="red button" onclick="return confirm(<?php echo html_escape(js_escape(__("Clear all short-running test records?"))); ?>);"><?php echo __("Clear"); ?></button>
     </form>
 <?php endif; ?>
 
@@ -62,6 +62,6 @@ echo flash();
 
     <form action="tests/clear" method="POST" style="display:inline;">
         <input type="hidden" name="dispatch_type" value="long_running">
-        <button class="red button" onclick="return confirm('Clear all long-running test records?');"><?php echo __("Clear"); ?></button>
+        <button class="red button" onclick="return confirm(<?php echo html_escape(js_escape(__("Clear all long-running test records?"))); ?>);"><?php echo __("Clear"); ?></button>
     </form>
 <?php endif; ?>

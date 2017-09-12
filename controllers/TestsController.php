@@ -160,12 +160,21 @@ class JobDiagnostics_TestsController extends Omeka_Controller_AbstractActionCont
     {
         if ($this->getRequest()->isPost()) {
             $dispatchType = $this->getParam('dispatch_type');
+            $localizedDispatchType = __($dispatchType);
             if (empty($dispatchType)) {
                 $this->_helper->flashMessenger(__("Bad form submission."), 'error');
             } else {
                 try {
                     get_db()->getTable('JobDiagnostics_Test')->clearByDispatchType($dispatchType);
-                    $this->_helper->flashMessenger(__("%s test records successfully cleared!", __($dispatchType)), 'success');
+                    switch ($dispatchType) {
+                        case 'short_running':
+                            $localizedDispatchType = __("Short-Running Job");
+                            break;
+                        case 'long_running':
+                            $localizedDispatchType = __("Long-Running Job");
+                            break;
+                    }
+                    $this->_helper->flashMessenger(__("%s test records successfully cleared!", $localizedDispatchType), 'success');
                 } catch (Exception $ex) {
                     $this->_helper->flashMessenger(__("An error occurred: %s", $ex->getMessage()), 'error');
                 }
