@@ -6,6 +6,7 @@ class JobDiagnostics_TestsController extends Omeka_Controller_AbstractActionCont
     const LONG_DISPATCH = 'long_running';
     const SLOW_LIMIT = 20;
     const TIMEOUT_LIMIT = 60;
+    const POLL_INTERVAL = 2;
     
     /**
      * Initialize controller settings.
@@ -79,7 +80,7 @@ class JobDiagnostics_TestsController extends Omeka_Controller_AbstractActionCont
         } catch (Exception $ex) {
             $record->error = $ex->getMessage();
         }
-        $this->_helper->redirector('index', null, null, array());
+        $this->_helper->redirector('wait', null, null, array('id' => $record->id));
     }
     
     /**
@@ -181,5 +182,44 @@ class JobDiagnostics_TestsController extends Omeka_Controller_AbstractActionCont
             }
             $this->_helper->redirector('index', null, null, array());
         }
+    }
+    
+    /**
+     * Poll the test record until it finishes running
+     * @throws Omeka_Controller_Exception_404
+     */
+    public function waitAction()
+    {
+        if (empty($testRecord = get_db()->getTable('JobDiagnostics_Test')->find($this->getParam('id')))) {
+            throw new Omeka_Controller_Exception_404;
+        }
+        if (!empty($testRecord->finished) || !empty($testRecord->error)) {
+            $this->_helper->redirector('index', null, null, array());
+        }
+        queue_js_file('test_wait');
+        $this->view->job_diagnostics_test = $testRecord;
+    }
+    
+    /**
+     * Ajax back-end for wait action.
+     * @throws Omeka_Controller_Exception_404
+     */
+    public function waitAjaxAction()
+    {
+        $id = $this->getParam('id');
+        if (empty($testRecord = get_db()->getTable('JobDiagnostics_Test')->find($this->getParam('id')))) {
+            throw new Omeka_Controller_Exception_404;
+        }
+        $response = $this->getResponse();
+        $this->_helper->viewRenderer->setNoRender();
+        $response->setHeader('Content-Type', 'application/json');
+        $response->clearBody();
+        $response->setBody(json_encode(array(
+            'id' => $testRecord->id,
+            'dispatch_type' => $testRecord->dispatch_type,
+            'started' => $testRecord->started,
+            'finished' => $testRecord->finished,
+            'error' => $testRecord->error,
+        )));
     }
 }
