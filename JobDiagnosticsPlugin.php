@@ -24,7 +24,8 @@ class JobDiagnosticsPlugin extends Omeka_plugin_AbstractPlugin
             `id` INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
             `dispatch_type` VARCHAR(64) NOT NULL,
             `started` TIMESTAMP DEFAULT NOW(),
-            `finished` TIMESTAMP NULL
+            `finished` TIMESTAMP NULL,
+            `error` TEXT NULL
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;"
         );
     }
