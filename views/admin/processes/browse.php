@@ -32,7 +32,7 @@ echo flash();
         <?php $userTable = get_db()->getTable('User'); ?>
         <?php foreach ($processes as $process) : ?>
         <tr>
-            <td><?php echo $process->id; ?></td>
+            <td><a href="<?php echo admin_url(array('action' => 'show', 'id' => $process->id), 'job_diagnostics_processes_id'); ?>"><?php echo $process->id; ?></a></td>
             <td><?php echo $process->pid; ?></td>
             <td><?php echo __($process->status); ?></td>
             <td><?php echo ($user = $userTable->find($process->user_id)) ? html_escape($user->name) : '[Removed User]'; ?></td>
@@ -42,3 +42,5 @@ echo flash();
         <?php endforeach; ?>
     </tbody>
 </table>
+
+<?php echo foot(); 

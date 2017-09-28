@@ -4,6 +4,7 @@ class JobDiagnostics_ProcessesController extends Omeka_Controller_AbstractAction
 {
     protected $_browseRecordsPerPage = self::RECORDS_PER_PAGE_SETTING;
     
+    
     /**
      * Initialize controller settings.
      */
@@ -18,6 +19,15 @@ class JobDiagnostics_ProcessesController extends Omeka_Controller_AbstractAction
     public function browseAction() 
     {
         parent::browseAction();
+    }
+    
+    /**
+     * Show action. Inherit from parent.
+     */
+    public function showAction()
+    {
+        parent::showAction();
+        $this->view->process = $this->view->proces; // Patch for bad inflector
     }
     
     /**
