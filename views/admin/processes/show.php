@@ -50,7 +50,7 @@ echo flash();
                 <label><?php echo __('Finished at'); ?></label>
             </div>
             <div class="element-text five columns omega">
-                <p><?php echo $process->stopped; ?></p>
+                <p><?php echo $process->stopped ? $process->stopped : '&nbsp;'; ?></p>
             </div>
         </div>
     </div>
