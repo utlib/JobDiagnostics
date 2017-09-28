@@ -65,3 +65,5 @@ echo flash();
         <button class="red button" onclick="return confirm(<?php echo html_escape(js_escape(__("Clear all long-running test records?"))); ?>);"><?php echo __("Clear"); ?></button>
     </form>
 <?php endif; ?>
+
+<?php echo foot(); 

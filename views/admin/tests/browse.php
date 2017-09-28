@@ -55,3 +55,5 @@ echo flash();
         </tbody>
     </table>
 <?php endif; ?>
+
+<?php echo foot(); 
