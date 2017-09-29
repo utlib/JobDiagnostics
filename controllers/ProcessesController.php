@@ -1,9 +1,16 @@
 <?php
 
+/**
+ * Controller for viewing processes.
+ * @package controllers
+ */
 class JobDiagnostics_ProcessesController extends Omeka_Controller_AbstractActionController
 {
+    /**
+     * Number of processes to show per browsing page.
+     * @var int
+     */
     protected $_browseRecordsPerPage = self::RECORDS_PER_PAGE_SETTING;
-    
     
     /**
      * Initialize controller settings.

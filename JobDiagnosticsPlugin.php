@@ -1,6 +1,14 @@
 <?php
+/**
+ * The main plugin.
+ * @package JobDiagnostics
+ */
 class JobDiagnosticsPlugin extends Omeka_plugin_AbstractPlugin
 {
+    /**
+     * Hooks used by this plugin.
+     * @var array
+     */
     protected $_hooks = array(
         'install',
         'uninstall',
@@ -8,6 +16,10 @@ class JobDiagnosticsPlugin extends Omeka_plugin_AbstractPlugin
         'define_routes',
     );
 
+    /**
+     * Filters used by this plugin.
+     * @var array
+     */
     protected $_filters = array(
         'admin_navigation_main',
     );

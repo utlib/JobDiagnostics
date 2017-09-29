@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Table for test run records.
+ * @package models/Table
+ */
 class Table_JobDiagnostics_Test extends Omeka_Db_Table
 {
     /**

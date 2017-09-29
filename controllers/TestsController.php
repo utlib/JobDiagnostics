@@ -1,11 +1,34 @@
 <?php
 
+/**
+ * Controller for viewing test results.
+ * @package controllers
+ */
 class JobDiagnostics_TestsController extends Omeka_Controller_AbstractActionController
 {
+    /**
+     * Label slug for short-running job tests.
+     */
     const SHORT_DISPATCH = 'short_running';
+    
+    /**
+     * Label slug for long-running job tests.
+     */
     const LONG_DISPATCH = 'long_running';
+    
+    /**
+     * Time limit in seconds for a job queue to be considered slow.
+     */
     const SLOW_LIMIT = 20;
+    
+    /**
+     * Time limit in seconds for a job queue to be considered jammed.
+     */
     const TIMEOUT_LIMIT = 60;
+    
+    /**
+     * Interval in seconds to poll for updates.
+     */
     const POLL_INTERVAL = 2;
     
     /**

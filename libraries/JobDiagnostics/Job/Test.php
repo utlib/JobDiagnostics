@@ -1,7 +1,15 @@
 <?php
 
+/**
+ * Dummy background job representing a test.
+ * @package Job
+ */
 class JobDiagnostics_Job_Test extends Omeka_Job_AbstractJob
 {
+    /**
+     * The ID for the JobDiagnostics_Test record being run.
+     * @var int
+     */
     private $_testId;
     
     /**
