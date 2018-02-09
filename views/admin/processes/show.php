@@ -58,7 +58,7 @@ echo flash();
     <div class="element-set">
         <h2><?php echo __('Data'); ?></h2>
         <div class="element">
-            <div class="element-text seven columns alpha" id="data-args" style="font-family: monospace;"><?php echo html_escape($process->args); ?></div>
+            <div class="element-text seven columns alpha" id="data-args" style="font-family: monospace; word-wrap: break-word;"><?php echo html_escape($process->args); ?></div>
         </div>
     </div>
 </section>
