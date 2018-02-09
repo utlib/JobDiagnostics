@@ -35,7 +35,7 @@ echo flash();
             <td><a href="<?php echo admin_url(array('action' => 'show', 'id' => $process->id), 'job_diagnostics_processes_id'); ?>"><?php echo $process->id; ?></a></td>
             <td><?php echo $process->pid; ?></td>
             <td><?php echo __($process->status); ?></td>
-            <td><?php echo ($user = $userTable->find($process->user_id)) ? html_escape($user->name) : '[Removed User]'; ?></td>
+            <td><?php echo ($user = $userTable->find($process->user_id)) ? html_escape($user->name) : __('[Removed User]'); ?></td>
             <td><?php echo $process->started; ?></td>
             <td><?php echo $process->stopped; ?></td>
         </tr>

@@ -3,19 +3,29 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: Job Diagnostics\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-12 15:35-0400\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2018-02-09 15:51-0500\n"
+"PO-Revision-Date: 2018-02-09 15:51-0500\n"
+"Last-Translator: Dickson Law <dickson.law@utoronto.ca>\n"
+"Language-Team: University of Toronto Libraries\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: JobDiagnosticsPlugin.php:115 views/admin/tests/wait.php:4
+#: views/admin/tests/index.php:4
+msgid "Job Diagnostics"
+msgstr ""
 
 #: views/admin/tests/browse.php:4
 #, php-format
@@ -23,6 +33,7 @@ msgid "Browsing Test History (%d total)"
 msgstr ""
 
 #: views/admin/tests/browse.php:12 views/admin/processes/browse.php:12
+#: views/admin/processes/show.php:68
 msgid "Refresh"
 msgstr ""
 
@@ -50,11 +61,11 @@ msgstr ""
 msgid "Error"
 msgstr ""
 
-#: views/admin/tests/browse.php:40 controllers/TestsController.php:171
+#: views/admin/tests/browse.php:40 controllers/TestsController.php:195
 msgid "Short-Running Job"
 msgstr ""
 
-#: views/admin/tests/browse.php:43 controllers/TestsController.php:174
+#: views/admin/tests/browse.php:43 controllers/TestsController.php:198
 msgid "Long-Running Job"
 msgstr ""
 
@@ -62,8 +73,9 @@ msgstr ""
 msgid "[OK]"
 msgstr ""
 
-#: views/admin/tests/index.php:4 JobDiagnosticsPlugin.php:102
-msgid "Job Diagnostics"
+#: views/admin/tests/wait.php:11
+#, fuzzy
+msgid "Test in Progress..."
 msgstr ""
 
 #: views/admin/tests/index.php:13
@@ -75,6 +87,8 @@ msgid ""
 "Short-running jobs are used in more routine tasks such as batch edits. Run "
 "this test if these appear to be not working."
 msgstr ""
+"Short-running jobs are used in more routine tasks such as batch edits. Run "
+"this test if these appear to be not working."
 
 #: views/admin/tests/index.php:19 views/admin/tests/index.php:47
 #, php-format
@@ -112,6 +126,9 @@ msgid ""
 "CSV importer. Run this test if jobs started by plugins appear to be not "
 "working."
 msgstr ""
+"Long-running jobs are used in plugins with longer import tasks, such as the "
+"CSV importer. Run this test if jobs started by plugins appear to be not "
+"working."
 
 #: views/admin/tests/index.php:65
 msgid "Clear all long-running test records?"
@@ -122,11 +139,11 @@ msgstr ""
 msgid "Browsing Processes (%d total)"
 msgstr ""
 
-#: views/admin/processes/browse.php:21
+#: views/admin/processes/browse.php:21 views/admin/processes/show.php:25
 msgid "PID"
 msgstr ""
 
-#: views/admin/processes/browse.php:22
+#: views/admin/processes/browse.php:22 views/admin/processes/show.php:16
 msgid "Status"
 msgstr ""
 
@@ -138,9 +155,37 @@ msgstr ""
 msgid "Stopped"
 msgstr ""
 
+#: views/admin/processes/browse.php:38
+msgid "[Removed User]"
+msgstr ""
+
 #: views/admin/processes/show.php:4
 #, php-format
-msgid "Showing Process %d"
+msgid "Process %d"
+msgstr ""
+
+#: views/admin/processes/show.php:13
+msgid "Overview"
+msgstr ""
+
+#: views/admin/processes/show.php:34
+msgid "Run By"
+msgstr ""
+
+#: views/admin/processes/show.php:42
+msgid "Started at"
+msgstr ""
+
+#: views/admin/processes/show.php:50
+msgid "Finished at"
+msgstr ""
+
+#: views/admin/processes/show.php:59
+msgid "Data"
+msgstr ""
+
+#: views/admin/processes/show.php:69
+msgid "Return to Listings"
 msgstr ""
 
 #: views/admin/shared/nav.php:6
@@ -151,50 +196,59 @@ msgstr ""
 msgid "Processes"
 msgstr ""
 
-#: controllers/TestsController.php:34 controllers/TestsController.php:47
-#: controllers/TestsController.php:76 controllers/TestsController.php:165
+#: controllers/TestsController.php:58 controllers/TestsController.php:71
+#: controllers/TestsController.php:100 controllers/TestsController.php:189
 msgid "Bad form submission."
 msgstr ""
 
-#: controllers/TestsController.php:52 controllers/TestsController.php:179
+#: controllers/TestsController.php:76 controllers/TestsController.php:203
 #, php-format
 msgid "An error occurred: %s"
 msgstr ""
 
-#: controllers/TestsController.php:111
+#: controllers/TestsController.php:135
 msgid "No tests run yet."
 msgstr ""
 
-#: controllers/TestsController.php:116 controllers/TestsController.php:126
+#: controllers/TestsController.php:140 controllers/TestsController.php:150
 #, php-format
 msgid "Error during dispatch: %s"
 msgstr ""
 
-#: controllers/TestsController.php:119
+#: controllers/TestsController.php:143
 msgid "Test in progress..."
 msgstr ""
 
-#: controllers/TestsController.php:121
+#: controllers/TestsController.php:145
 #, php-format
 msgid "No response after %d seconds. Jammed queue suspected."
 msgstr ""
 
-#: controllers/TestsController.php:128
+#: controllers/TestsController.php:152
 #, php-format
 msgid "Response in %d seconds. Queue OK."
 msgstr ""
 
-#: controllers/TestsController.php:130
+#: controllers/TestsController.php:154
 #, php-format
 msgid "Response in %d seconds. Queue busy but still OK."
 msgstr ""
 
-#: controllers/TestsController.php:132
+#: controllers/TestsController.php:156
 #, php-format
 msgid "Response in %d seconds. Queue nearing capacity, or re-test required."
 msgstr ""
 
-#: controllers/TestsController.php:177
+#: controllers/TestsController.php:201
 #, php-format
 msgid "%s test records successfully cleared!"
 msgstr ""
+
+#~ msgid "Showing Process %d"
+#~ msgstr ""
+
+#~ msgid "Short Running Job"
+#~ msgstr ""
+
+#~ msgid "Long Running Job"
+#~ msgstr ""
