@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Job Diagnostics\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-09 15:51-0500\n"
-"PO-Revision-Date: 2018-02-09 15:51-0500\n"
+"POT-Creation-Date: 2018-04-02 17:39-0500\n"
+"PO-Revision-Date: 2018-04-02 17:39-0500\n"
 "Last-Translator: Dickson Law <dickson.law@utoronto.ca>\n"
 "Language-Team: University of Toronto Libraries\n"
 "Language: en\n"
@@ -74,7 +74,6 @@ msgid "[OK]"
 msgstr ""
 
 #: views/admin/tests/wait.php:11
-#, fuzzy
 msgid "Test in Progress..."
 msgstr ""
 
@@ -243,12 +242,3 @@ msgstr ""
 #, php-format
 msgid "%s test records successfully cleared!"
 msgstr ""
-
-#~ msgid "Showing Process %d"
-#~ msgstr ""
-
-#~ msgid "Short Running Job"
-#~ msgstr ""
-
-#~ msgid "Long Running Job"
-#~ msgstr ""
