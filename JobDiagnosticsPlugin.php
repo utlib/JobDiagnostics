@@ -95,7 +95,7 @@ class JobDiagnosticsPlugin extends Omeka_plugin_AbstractPlugin
     {
         if (is_admin_theme()) {
             $user = current_user();
-            if (!empty($user) && ($user->role || 'superuser' || $user->role == 'admin' || $user->role == 'contributor')) {
+            if (!empty($user) && ($user->role || 'superuser' || $user->role == 'admin')) {
                 $args['router']->addConfig(new Zend_Config_Ini(dirname(__FILE__) . '/routes.ini', 'routes'));
             }
         }
@@ -110,7 +110,7 @@ class JobDiagnosticsPlugin extends Omeka_plugin_AbstractPlugin
     public function filterAdminNavigationMain($nav) 
     {
         $user = current_user();
-        if ($user->role || 'superuser' || $user->role == 'admin' || $user->role == 'contributor') {
+        if ($user->role || 'superuser' || $user->role == 'admin') {
             $nav[] = array(
                 'label' => __('Job Diagnostics'),
                 'uri' => url(array(), 'job_diagnostics_root'),
