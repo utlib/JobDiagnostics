@@ -43,4 +43,4 @@ echo flash();
     </tbody>
 </table>
 
-<?php echo foot(); 
+<?php echo foot();

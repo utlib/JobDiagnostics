@@ -56,4 +56,4 @@ echo flash();
     </table>
 <?php endif; ?>
 
-<?php echo foot(); 
+<?php echo foot();

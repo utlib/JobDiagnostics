@@ -10,47 +10,47 @@ class JobDiagnostics_TestsController extends Omeka_Controller_AbstractActionCont
      * Label slug for short-running job tests.
      */
     const SHORT_DISPATCH = 'short_running';
-    
+
     /**
      * Label slug for long-running job tests.
      */
     const LONG_DISPATCH = 'long_running';
-    
+
     /**
      * Time limit in seconds for a job queue to be considered slow.
      */
     const SLOW_LIMIT = 20;
-    
+
     /**
      * Time limit in seconds for a job queue to be considered jammed.
      */
     const TIMEOUT_LIMIT = 60;
-    
+
     /**
      * Interval in seconds to poll for updates.
      */
     const POLL_INTERVAL = 2;
-    
+
     /**
      * Initialize controller settings.
      */
-    public function init() 
+    public function init()
     {
         $this->_helper->db->setDefaultModelName('JobDiagnostics_Test');
     }
-    
+
     /**
      * Alias for main page.
      */
-    public function homeAction() 
+    public function homeAction()
     {
         $this->_helper->redirector('index', null, null, array());
     }
-    
+
     /**
      * POST-only create test records
      */
-    public function addAction() 
+    public function addAction()
     {
         if ($this->getRequest()->isPost()) {
             $dispatchType = $this->getParam('dispatch_type');
@@ -71,7 +71,7 @@ class JobDiagnostics_TestsController extends Omeka_Controller_AbstractActionCont
                         $this->_helper->flashMessenger(__("Bad form submission."), 'error');
                         break;
                     }
-                    
+
                 } catch (Exception $ex) {
                     $this->_helper->flashMessenger(__("An error occurred: %s", $ex->getMessage()), 'error');
                 }
@@ -79,13 +79,13 @@ class JobDiagnostics_TestsController extends Omeka_Controller_AbstractActionCont
             $this->_helper->redirector('index', null, null, array());
         }
     }
-    
+
     /**
      * Redirect back to index after add.
      *
      * @param Omeka_Record_AbstractRecord $record
      */
-    protected function _redirectAfterAdd($record) 
+    protected function _redirectAfterAdd($record)
     {
         try {
             switch ($record->dispatch_type) {
@@ -105,11 +105,11 @@ class JobDiagnostics_TestsController extends Omeka_Controller_AbstractActionCont
         }
         $this->_helper->redirector('wait', null, null, array('id' => $record->id));
     }
-    
+
     /**
      * Main page.
      */
-    public function indexAction() 
+    public function indexAction()
     {
         $this->view->short_running_result = $this->_resultForDispatchType(self::SHORT_DISPATCH, $test);
         $this->view->latest_short_running_test = $test;
@@ -120,13 +120,13 @@ class JobDiagnostics_TestsController extends Omeka_Controller_AbstractActionCont
         $this->view->long_running_allow_test = empty($test) || !empty($test->finished);
         $this->view->long_running_allow_history = !empty($test);
     }
-    
+
     /**
      * Return the latest result for the dispatch type
      *
      * @param string $dispatchType
      */
-    private function _resultForDispatchType($dispatchType, &$test) 
+    private function _resultForDispatchType($dispatchType, &$test)
     {
         $table = $this->_helper->_db->getTable('JobDiagnostics_Test');
         $select = $table->getSelectForFindBy(array('dispatch_type' => $dispatchType))->order('started desc');
@@ -158,15 +158,15 @@ class JobDiagnostics_TestsController extends Omeka_Controller_AbstractActionCont
             }
         }
     }
-    
+
     /**
      * Browse old test records.
      */
-    public function browseAction() 
+    public function browseAction()
     {
         parent::browseAction();
     }
-    
+
     /**
      * Return the default sort type.
      *
@@ -176,11 +176,11 @@ class JobDiagnostics_TestsController extends Omeka_Controller_AbstractActionCont
     {
         return array('id', 'd');
     }
-    
+
     /**
      * Clear test records by dispatch type.
      */
-    public function clearAction() 
+    public function clearAction()
     {
         if ($this->getRequest()->isPost()) {
             $dispatchType = $this->getParam('dispatch_type');
@@ -206,7 +206,7 @@ class JobDiagnostics_TestsController extends Omeka_Controller_AbstractActionCont
             $this->_helper->redirector('index', null, null, array());
         }
     }
-    
+
     /**
      * Poll the test record until it finishes running
      * @throws Omeka_Controller_Exception_404
@@ -222,7 +222,7 @@ class JobDiagnostics_TestsController extends Omeka_Controller_AbstractActionCont
         queue_js_file('test_wait');
         $this->view->job_diagnostics_test = $testRecord;
     }
-    
+
     /**
      * Ajax back-end for wait action.
      * @throws Omeka_Controller_Exception_404

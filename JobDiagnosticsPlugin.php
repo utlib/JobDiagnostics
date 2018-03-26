@@ -28,7 +28,7 @@ class JobDiagnosticsPlugin extends Omeka_plugin_AbstractPlugin
      * HOOK: Install
      * Add tables to the database.
      */
-    public function hookInstall() 
+    public function hookInstall()
     {
         $db = get_db();
         $db->query(
@@ -46,7 +46,7 @@ class JobDiagnosticsPlugin extends Omeka_plugin_AbstractPlugin
      * HOOK: Uninstall
      * Remove tables from the database
      */
-    public function hookUninstall() 
+    public function hookUninstall()
     {
         $db = get_db();
         $db->query("DROP TABLE IF EXISTS `{$db->prefix}job_diagnostics_tests`;");
@@ -56,7 +56,7 @@ class JobDiagnosticsPlugin extends Omeka_plugin_AbstractPlugin
      * HOOK: Upgrade
      * Follow migrations in sequence from oldest to newest.
      */
-    public function hookUpgrade($args) 
+    public function hookUpgrade($args)
     {
         // Capture arguments
         $oldVersion = $args['old_version'];
@@ -91,7 +91,7 @@ class JobDiagnosticsPlugin extends Omeka_plugin_AbstractPlugin
      *
      * @param array $args
      */
-    public function hookDefineRoutes($args) 
+    public function hookDefineRoutes($args)
     {
         if (is_admin_theme()) {
             $user = current_user();
@@ -100,14 +100,14 @@ class JobDiagnosticsPlugin extends Omeka_plugin_AbstractPlugin
             }
         }
     }
-    
+
     /**
      * FILTER: Add entry to admin navigation menu.
-     * 
+     *
      * @param  array $nav
      * @return array
      */
-    public function filterAdminNavigationMain($nav) 
+    public function filterAdminNavigationMain($nav)
     {
         $user = current_user();
         if ($user->role || 'superuser' || $user->role == 'admin') {

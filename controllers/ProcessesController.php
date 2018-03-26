@@ -11,7 +11,7 @@ class JobDiagnostics_ProcessesController extends Omeka_Controller_AbstractAction
      * @var int
      */
     protected $_browseRecordsPerPage = self::RECORDS_PER_PAGE_SETTING;
-    
+
     /**
      * Initialize controller settings.
      */
@@ -19,15 +19,15 @@ class JobDiagnostics_ProcessesController extends Omeka_Controller_AbstractAction
     {
         $this->_helper->db->setDefaultModelName('Process');
     }
-    
+
     /**
      * Browse action. Inherit from parent.
      */
-    public function browseAction() 
+    public function browseAction()
     {
         parent::browseAction();
     }
-    
+
     /**
      * Show action. Inherit from parent.
      */
@@ -36,7 +36,7 @@ class JobDiagnostics_ProcessesController extends Omeka_Controller_AbstractAction
         parent::showAction();
         $this->view->process = $this->view->proces; // Patch for bad inflector
     }
-    
+
     /**
      * Return the default sort type.
      *
