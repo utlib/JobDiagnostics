@@ -112,13 +112,32 @@ class JobDiagnostics_TestsController extends Omeka_Controller_AbstractActionCont
     public function indexAction()
     {
         $this->view->short_running_result = $this->_resultForDispatchType(self::SHORT_DISPATCH, $test);
+        $this->_killTestIfDead($test);
         $this->view->latest_short_running_test = $test;
         $this->view->short_running_allow_test = empty($test) || !empty($test->finished);
         $this->view->short_running_allow_history = !empty($test);
         $this->view->long_running_result = $this->_resultForDispatchType(self::LONG_DISPATCH, $test);
+        $this->_killTestIfDead($test);
         $this->view->latest_long_running_test = $test;
         $this->view->long_running_allow_test = empty($test) || !empty($test->finished);
         $this->view->long_running_allow_history = !empty($test);
+    }
+    
+    /**
+     * Time out the given test record if its starting time is longer ago than the timeout limit.
+     * @param JobDiagnostics_Test $test
+     */
+    private function _killTestIfDead($test)
+    {
+        if (!empty($test))
+        {
+            if (empty($test->finished) && time()-strtotime($test->started) >= self::TIMEOUT_LIMIT)
+            {
+                $test->finished = date("Y-m-d H:i:s");
+                $test->error = __("[Timed out]");
+                $test->save();
+            }
+        }
     }
 
     /**
@@ -237,6 +256,7 @@ class JobDiagnostics_TestsController extends Omeka_Controller_AbstractActionCont
         $this->_helper->viewRenderer->setNoRender();
         $response->setHeader('Content-Type', 'application/json');
         $response->clearBody();
+        $this->_killTestIfDead($testRecord);
         $response->setBody(json_encode(array(
             'id' => $testRecord->id,
             'dispatch_type' => $testRecord->dispatch_type,

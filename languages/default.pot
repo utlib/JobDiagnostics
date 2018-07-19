@@ -3,11 +3,12 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Job Diagnostics\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-02 17:39-0500\n"
+"POT-Creation-Date: 2018-07-19 17:52-0400\n"
 "PO-Revision-Date: 2018-04-02 17:39-0500\n"
 "Last-Translator: Dickson Law <dickson.law@utoronto.ca>\n"
 "Language-Team: University of Toronto Libraries\n"
@@ -15,127 +16,90 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 2.0.9\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: JobDiagnosticsPlugin.php:115 views/admin/tests/wait.php:4
-#: views/admin/tests/index.php:4
+#: JobDiagnosticsPlugin.php:115 views/admin/tests/index.php:4
+#: views/admin/tests/wait.php:4
 msgid "Job Diagnostics"
 msgstr ""
 
-#: views/admin/tests/browse.php:4
+#: controllers/TestsController.php:58 controllers/TestsController.php:71
+#: controllers/TestsController.php:100 controllers/TestsController.php:208
+msgid "Bad form submission."
+msgstr ""
+
+#: controllers/TestsController.php:76 controllers/TestsController.php:222
 #, php-format
-msgid "Browsing Test History (%d total)"
+msgid "An error occurred: %s"
 msgstr ""
 
-#: views/admin/tests/browse.php:12 views/admin/processes/browse.php:12
-#: views/admin/processes/show.php:68
-msgid "Refresh"
+#: controllers/TestsController.php:137
+msgid "[Timed out]"
 msgstr ""
 
-#: views/admin/tests/browse.php:15
-msgid "No test records."
+#: controllers/TestsController.php:154
+msgid "No tests run yet."
 msgstr ""
 
-#: views/admin/tests/browse.php:23 views/admin/processes/browse.php:20
-msgid "ID"
+#: controllers/TestsController.php:159 controllers/TestsController.php:169
+#, php-format
+msgid "Error during dispatch: %s"
 msgstr ""
 
-#: views/admin/tests/browse.php:24
-msgid "Dispatch Type"
+#: controllers/TestsController.php:162
+msgid "Test in progress..."
 msgstr ""
 
-#: views/admin/tests/browse.php:25 views/admin/processes/browse.php:24
-msgid "Started"
+#: controllers/TestsController.php:164
+#, php-format
+msgid "No response after %d seconds. Jammed queue suspected."
 msgstr ""
 
-#: views/admin/tests/browse.php:26
-msgid "Finished"
+#: controllers/TestsController.php:171
+#, php-format
+msgid "Response in %d seconds. Queue OK."
 msgstr ""
 
-#: views/admin/tests/browse.php:27
-msgid "Error"
+#: controllers/TestsController.php:173
+#, php-format
+msgid "Response in %d seconds. Queue busy but still OK."
 msgstr ""
 
-#: views/admin/tests/browse.php:40 controllers/TestsController.php:195
+#: controllers/TestsController.php:175
+#, php-format
+msgid "Response in %d seconds. Queue nearing capacity, or re-test required."
+msgstr ""
+
+#: controllers/TestsController.php:214 views/admin/tests/browse.php:40
 msgid "Short-Running Job"
 msgstr ""
 
-#: views/admin/tests/browse.php:43 controllers/TestsController.php:198
+#: controllers/TestsController.php:217 views/admin/tests/browse.php:43
 msgid "Long-Running Job"
 msgstr ""
 
-#: views/admin/tests/browse.php:52
-msgid "[OK]"
-msgstr ""
-
-#: views/admin/tests/wait.php:11
-msgid "Test in Progress..."
-msgstr ""
-
-#: views/admin/tests/index.php:13
-msgid "Short-Running Jobs"
-msgstr ""
-
-#: views/admin/tests/index.php:15
-msgid ""
-"Short-running jobs are used in more routine tasks such as batch edits. Run "
-"this test if these appear to be not working."
-msgstr ""
-"Short-running jobs are used in more routine tasks such as batch edits. Run "
-"this test if these appear to be not working."
-
-#: views/admin/tests/index.php:19 views/admin/tests/index.php:47
+#: controllers/TestsController.php:220
 #, php-format
-msgid "Latest result: %s"
-msgstr ""
-
-#: views/admin/tests/index.php:21 views/admin/tests/index.php:49
-#, php-format
-msgid "Latest result (%s): %s"
-msgstr ""
-
-#: views/admin/tests/index.php:28 views/admin/tests/index.php:56
-msgid "Test"
-msgstr ""
-
-#: views/admin/tests/index.php:33 views/admin/tests/index.php:61
-msgid "History"
-msgstr ""
-
-#: views/admin/tests/index.php:37
-msgid "Clear all short-running test records?"
-msgstr ""
-
-#: views/admin/tests/index.php:37 views/admin/tests/index.php:65
-msgid "Clear"
-msgstr ""
-
-#: views/admin/tests/index.php:41
-msgid "Long-Running Jobs"
-msgstr ""
-
-#: views/admin/tests/index.php:43
-msgid ""
-"Long-running jobs are used in plugins with longer import tasks, such as the "
-"CSV importer. Run this test if jobs started by plugins appear to be not "
-"working."
-msgstr ""
-"Long-running jobs are used in plugins with longer import tasks, such as the "
-"CSV importer. Run this test if jobs started by plugins appear to be not "
-"working."
-
-#: views/admin/tests/index.php:65
-msgid "Clear all long-running test records?"
+msgid "%s test records successfully cleared!"
 msgstr ""
 
 #: views/admin/processes/browse.php:4
 #, php-format
 msgid "Browsing Processes (%d total)"
+msgstr ""
+
+#: views/admin/processes/browse.php:12 views/admin/processes/show.php:68
+#: views/admin/tests/browse.php:12
+msgid "Refresh"
+msgstr ""
+
+#: views/admin/processes/browse.php:20 views/admin/tests/browse.php:23
+msgid "ID"
 msgstr ""
 
 #: views/admin/processes/browse.php:21 views/admin/processes/show.php:25
@@ -148,6 +112,10 @@ msgstr ""
 
 #: views/admin/processes/browse.php:23
 msgid "User"
+msgstr ""
+
+#: views/admin/processes/browse.php:24 views/admin/tests/browse.php:25
+msgid "Started"
 msgstr ""
 
 #: views/admin/processes/browse.php:25
@@ -195,50 +163,82 @@ msgstr ""
 msgid "Processes"
 msgstr ""
 
-#: controllers/TestsController.php:58 controllers/TestsController.php:71
-#: controllers/TestsController.php:100 controllers/TestsController.php:189
-msgid "Bad form submission."
-msgstr ""
-
-#: controllers/TestsController.php:76 controllers/TestsController.php:203
+#: views/admin/tests/browse.php:4
 #, php-format
-msgid "An error occurred: %s"
+msgid "Browsing Test History (%d total)"
 msgstr ""
 
-#: controllers/TestsController.php:135
-msgid "No tests run yet."
+#: views/admin/tests/browse.php:15
+msgid "No test records."
 msgstr ""
 
-#: controllers/TestsController.php:140 controllers/TestsController.php:150
+#: views/admin/tests/browse.php:24
+msgid "Dispatch Type"
+msgstr ""
+
+#: views/admin/tests/browse.php:26
+msgid "Finished"
+msgstr ""
+
+#: views/admin/tests/browse.php:27
+msgid "Error"
+msgstr ""
+
+#: views/admin/tests/browse.php:52
+msgid "[OK]"
+msgstr ""
+
+#: views/admin/tests/index.php:13
+msgid "Short-Running Jobs"
+msgstr ""
+
+#: views/admin/tests/index.php:15
+msgid ""
+"Short-running jobs are used in more routine tasks such as batch edits. Run "
+"this test if these appear to be not working."
+msgstr ""
+
+#: views/admin/tests/index.php:19 views/admin/tests/index.php:47
 #, php-format
-msgid "Error during dispatch: %s"
+msgid "Latest result: %s"
 msgstr ""
 
-#: controllers/TestsController.php:143
-msgid "Test in progress..."
-msgstr ""
-
-#: controllers/TestsController.php:145
+#: views/admin/tests/index.php:21 views/admin/tests/index.php:49
 #, php-format
-msgid "No response after %d seconds. Jammed queue suspected."
+msgid "Latest result (%s): %s"
 msgstr ""
 
-#: controllers/TestsController.php:152
-#, php-format
-msgid "Response in %d seconds. Queue OK."
+#: views/admin/tests/index.php:28 views/admin/tests/index.php:56
+msgid "Test"
 msgstr ""
 
-#: controllers/TestsController.php:154
-#, php-format
-msgid "Response in %d seconds. Queue busy but still OK."
+#: views/admin/tests/index.php:33 views/admin/tests/index.php:61
+msgid "History"
 msgstr ""
 
-#: controllers/TestsController.php:156
-#, php-format
-msgid "Response in %d seconds. Queue nearing capacity, or re-test required."
+#: views/admin/tests/index.php:37
+msgid "Clear all short-running test records?"
 msgstr ""
 
-#: controllers/TestsController.php:201
-#, php-format
-msgid "%s test records successfully cleared!"
+#: views/admin/tests/index.php:37 views/admin/tests/index.php:65
+msgid "Clear"
+msgstr ""
+
+#: views/admin/tests/index.php:41
+msgid "Long-Running Jobs"
+msgstr ""
+
+#: views/admin/tests/index.php:43
+msgid ""
+"Long-running jobs are used in plugins with longer import tasks, such as the "
+"CSV importer. Run this test if jobs started by plugins appear to be not "
+"working."
+msgstr ""
+
+#: views/admin/tests/index.php:65
+msgid "Clear all long-running test records?"
+msgstr ""
+
+#: views/admin/tests/wait.php:11
+msgid "Test in Progress..."
 msgstr ""
