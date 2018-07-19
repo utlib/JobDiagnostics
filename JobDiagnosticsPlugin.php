@@ -3,7 +3,7 @@
  * The main plugin.
  * @package JobDiagnostics
  */
-class JobDiagnosticsPlugin extends Omeka_plugin_AbstractPlugin
+class JobDiagnosticsPlugin extends Omeka_Plugin_AbstractPlugin
 {
     /**
      * Hooks used by this plugin.
