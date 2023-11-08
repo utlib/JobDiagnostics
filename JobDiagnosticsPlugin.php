@@ -35,7 +35,7 @@ class JobDiagnosticsPlugin extends Omeka_Plugin_AbstractPlugin
             "CREATE TABLE IF NOT EXISTS `{$db->prefix}job_diagnostics_tests` (
             `id` INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
             `dispatch_type` VARCHAR(64) NOT NULL,
-            `started` TIMESTAMP DEFAULT NOW(),
+            `started` TIMESTAMP DEFAULT NOW() NOT NULL,
             `finished` TIMESTAMP NULL,
             `error` TEXT NULL
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;"
@@ -64,8 +64,8 @@ class JobDiagnosticsPlugin extends Omeka_Plugin_AbstractPlugin
         $doMigrate = false;
         // Load in all migrations
         $versions = array();
-        foreach (glob(dirname(__FILE__) . '/libraries/IiifItems/Migration/*.php') as $migrationFile) {
-            $className = 'IiifItems_Migration_' . basename($migrationFile, '.php');
+        foreach (glob(dirname(__FILE__) . '/libraries/JobDiagnostics/Migration/*.php') as $migrationFile) {
+            $className = 'JobDiagnostics_Migration_' . basename($migrationFile, '.php');
             include $migrationFile;
             $versions[$className::$version] = new $className();
         }
