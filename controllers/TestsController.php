@@ -52,6 +52,10 @@ class JobDiagnostics_TestsController extends Omeka_Controller_AbstractActionCont
      */
     public function addAction()
     {
+        if (!$this->_helper->acl->isAllowed('add', 'JobDiagnostics_Test'))
+        {
+            throw new Omeka_Controller_Exception_403;
+        }
         if ($this->getRequest()->isPost()) {
             $dispatchType = $this->getParam('dispatch_type');
             if (empty($dispatchType)) {
@@ -111,6 +115,10 @@ class JobDiagnostics_TestsController extends Omeka_Controller_AbstractActionCont
      */
     public function indexAction()
     {
+        if (!$this->_helper->acl->isAllowed('browse', 'JobDiagnostics_Test'))
+        {
+            throw new Omeka_Controller_Exception_403;
+        }
         $this->view->short_running_result = $this->_resultForDispatchType(self::SHORT_DISPATCH, $test);
         $this->_killTestIfDead($test);
         $this->view->latest_short_running_test = $test;
@@ -183,6 +191,10 @@ class JobDiagnostics_TestsController extends Omeka_Controller_AbstractActionCont
      */
     public function browseAction()
     {
+        if (!$this->_helper->acl->isAllowed('browse', 'JobDiagnostics_Test'))
+        {
+            throw new Omeka_Controller_Exception_403;
+        }
         parent::browseAction();
     }
 
@@ -201,6 +213,10 @@ class JobDiagnostics_TestsController extends Omeka_Controller_AbstractActionCont
      */
     public function clearAction()
     {
+        if (!$this->_helper->acl->isAllowed('clear', 'JobDiagnostics_Test'))
+        {
+            throw new Omeka_Controller_Exception_403;
+        }
         if ($this->getRequest()->isPost()) {
             $dispatchType = $this->getParam('dispatch_type');
             $localizedDispatchType = __($dispatchType);
@@ -232,6 +248,10 @@ class JobDiagnostics_TestsController extends Omeka_Controller_AbstractActionCont
      */
     public function waitAction()
     {
+        if (!$this->_helper->acl->isAllowed('show', 'JobDiagnostics_Test'))
+        {
+            throw new Omeka_Controller_Exception_403;
+        }
         if (empty($testRecord = get_db()->getTable('JobDiagnostics_Test')->find($this->getParam('id')))) {
             throw new Omeka_Controller_Exception_404;
         }
@@ -248,6 +268,10 @@ class JobDiagnostics_TestsController extends Omeka_Controller_AbstractActionCont
      */
     public function waitAjaxAction()
     {
+        if (!$this->_helper->acl->isAllowed('show', 'JobDiagnostics_Test'))
+        {
+            throw new Omeka_Controller_Exception_403;
+        }
         $id = $this->getParam('id');
         if (empty($testRecord = get_db()->getTable('JobDiagnostics_Test')->find($this->getParam('id')))) {
             throw new Omeka_Controller_Exception_404;

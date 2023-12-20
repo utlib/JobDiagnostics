@@ -25,6 +25,10 @@ class JobDiagnostics_ProcessesController extends Omeka_Controller_AbstractAction
      */
     public function browseAction()
     {
+        if (!$this->_helper->acl->isAllowed('browse', 'Process'))
+        {
+            throw new Omeka_Controller_Exception_403;
+        }
         parent::browseAction();
     }
 
@@ -33,6 +37,10 @@ class JobDiagnostics_ProcessesController extends Omeka_Controller_AbstractAction
      */
     public function showAction()
     {
+        if (!$this->_helper->acl->isAllowed('show', 'Process'))
+        {
+            throw new Omeka_Controller_Exception_403;
+        }
         parent::showAction();
         $this->view->process = $this->view->proces; // Patch for bad inflector
     }

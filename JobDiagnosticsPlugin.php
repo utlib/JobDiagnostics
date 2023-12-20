@@ -13,6 +13,7 @@ class JobDiagnosticsPlugin extends Omeka_Plugin_AbstractPlugin
         'install',
         'uninstall',
         'upgrade',
+        'define_acl',
         'define_routes',
     );
 
@@ -86,6 +87,25 @@ class JobDiagnosticsPlugin extends Omeka_Plugin_AbstractPlugin
     }
 
     /**
+     * HOOK: Setting up ACL
+     * Allow only superusers and admins to use this plugin.
+     * 
+     * @param array $args
+     */
+    public function hookDefineAcl($args)
+    {
+        $acl = $args['acl'];
+
+        $acl->add(new Zend_Acl_Resource('Process'));
+        $acl->deny(null, 'Process');
+        $acl->allow(array('super', 'admin'), 'Process', array('browse', 'show'));
+
+        $acl->add(new Zend_Acl_Resource('JobDiagnostics_Test'));
+        $acl->deny(null, 'JobDiagnostics_Test');
+        $acl->allow(array('super', 'admin'), 'JobDiagnostics_Test', array('browse', 'show', 'add', 'clear'));
+    }
+
+    /**
      * HOOK: Setting up routes
      * Add routes to the admin side only.
      *
@@ -93,12 +113,7 @@ class JobDiagnosticsPlugin extends Omeka_Plugin_AbstractPlugin
      */
     public function hookDefineRoutes($args)
     {
-        if (is_admin_theme()) {
-            $user = current_user();
-            if (!empty($user) && ($user->role || 'superuser' || $user->role == 'admin')) {
-                $args['router']->addConfig(new Zend_Config_Ini(dirname(__FILE__) . '/routes.ini', 'routes'));
-            }
-        }
+        $args['router']->addConfig(new Zend_Config_Ini(dirname(__FILE__) . '/routes.ini', 'routes'));
     }
 
     /**
@@ -110,7 +125,8 @@ class JobDiagnosticsPlugin extends Omeka_Plugin_AbstractPlugin
     public function filterAdminNavigationMain($nav)
     {
         $user = current_user();
-        if ($user->role || 'superuser' || $user->role == 'admin') {
+        $acl = get_acl();
+        if ($acl->isAllowed($user->role, 'Process', 'browse')) {
             $nav[] = array(
                 'label' => __('Job Diagnostics'),
                 'uri' => url(array(), 'job_diagnostics_root'),
